@@ -1,0 +1,3 @@
+{
+  "editor.formatOnSave": false //当保存时，就是format，format跟据.prettierrc.js的规范来
+}

@@ -1,0 +1,40 @@
+<!--
+ * @Author: 吴俊杰 20717@etransfar.com
+ * @Date: 2022-08-17 14:59:39
+ * @LastEditors: 吴俊杰 20717@etransfar.com
+ * @LastEditTime: 2022-09-01 16:20:20
+ * @FilePath: /个人工作/w-blog/themes/next/layout/card.ejs
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="<%- theme.head_img %> " alt="头像">
+        </div>
+        <div class="name">
+            <%- config.author %>
+        </div>
+        <div class="descriptions">
+            <% theme.card.description.forEach(function(desc){ %>
+            <div class="description">
+                <%- desc %>
+            </div>
+            <% }) %>
+        </div>
+        <div class="icon-links">
+            <% Object.keys(theme.card.icon_links).forEach(function(key){ %>
+            <span class="icon-link">
+                <a href="<%- theme.card.icon_links[key].link %>">
+
+                    <% if (theme.card.icon_links[key].icon.type == 'antd-icon'){ %>
+                    <a-icon type="<%- theme.card.icon_links[key].icon.name %>"
+                        theme="<%- theme.card.icon_links[key].icon.theme %>" />
+                    <% }else{ %>
+                    <img width="18px" height="18px" src="<%- theme.card.icon_links[key].icon.src %>" alt="<%- key %>">
+                    <% } %>
+                </a>
+            </span>
+            <% }) %>
+        </div>
+    </a-card>
+</a-affix>
